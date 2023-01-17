@@ -38,8 +38,8 @@ export default function EditPropertyModal({ property, profile }) {
     }
 
     useEffect(() => {
-        getPosition();
-    }, [])
+        if(profile) getPosition();
+    }, [profile])
 
     const router = useRouter();
     const [isuploading, setIsuploading] = useState(false);

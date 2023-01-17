@@ -215,10 +215,10 @@ export default function RentedProperties({ profile }) {
     }
 
     useEffect(() => {
-        fetchProperties();
+        if(profile) fetchProperties();
         return () => {
         };
-    }, []);
+    }, [profile]);
 
     const hasPersistance = useStorePersistance();
     const isViewingAsOwner = useUserPreferencesStore((state) => state.isViewingAsOwner);

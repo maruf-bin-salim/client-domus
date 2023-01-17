@@ -149,10 +149,10 @@ export default function OwnedProperties({ profile }) {
     }
 
     useEffect(() => {
-        fetchProperties();
+        if(profile) fetchProperties();
         return () => {
         };
-    }, []);
+    }, [profile]);
 
     const hasPersistance = useStorePersistance();
     const isViewingAsOwner = useUserPreferencesStore((state) => state.isViewingAsOwner);

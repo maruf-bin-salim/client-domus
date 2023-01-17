@@ -66,3 +66,66 @@ a {
   width: 100%;
   height: 20rem;
 }
+
+
+
+
+.auth-container {
+  /* background-image: url('../public/auth-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay; */
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.auth-container > div 
+{
+  background-color: #6D6E6E;
+  padding: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px 0px rgba(0,0,0,0.25);
+  min-height: 100px;
+  min-width: 200px;
+}
+.auth-container > div *
+{
+  color: white;
+}
+.auth-container > div input
+{
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+}
+
+.auth-container > div button
+{
+  background-color: #000000;
+  border: none;
+  border-radius: 10px;
+  text-transform: none;
+  box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
+}
+.auth-container > div button:hover
+{
+  background-color: #101010;
+  color: #dbdbdb;
+}
+
+.auth-container > div span
+{
+  color: #e73c3c;
+  text-decoration: underline;
+}
+
+.auth-container > div label
+{
+  text-transform: none;
+}

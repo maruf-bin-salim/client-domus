@@ -5,18 +5,22 @@ import { MainContent, Page } from '../styles/Page';
 import ProfileInformationBar from '../components/ProfileBar/ProfileInformationBar';
 import { addAuth0UserToDatabase, getUserWithAuth0ID } from '../Utils/database';
 import Notifcations from '../components/Notifications/notificationsBox';
+import useProfile from '../hooks/useProfile';
 
 
-export default function ComplaintNotifications({ profile }) {
+export default function ComplaintNotifications({ }) {
 
+  let { profile } = useProfile();
+  
   return (
     <Page>
       <ProfileInformationBar profile={profile} />
       <MainContent>
-        <Notifcations profile={profile}/>
+        <Notifcations profile={profile} />
       </MainContent>
       <BottomNavigationBar />
     </Page>
   )
+
 }
 

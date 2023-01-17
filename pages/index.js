@@ -2,29 +2,30 @@ import React from 'react';
 import BottomNavigationBar from '../components/BottomNavigation/BottomNavigationBar';
 import ProfileInformationBar from '../components/ProfileBar/ProfileInformationBar';
 import { MainContent, Page } from '../styles/Page';
-import { useUserPreferencesStore } from '../store';
-import { addAuth0UserToDatabase, getUserWithAuth0ID } from '../Utils/database';
 import OwnedProperties from '../components/Properties/OwnedProperties';
 import RentedProperties from '../components/Properties/RentedProperties';
+import Authentication from './authentication';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
+import useProfile from '../hooks/useProfile';
+import { useUserPreferencesStore } from '../store';
 
 
 
 export default function Dashboard({ }) {
 
-  // const setUserID = useUserPreferencesStore((state) => state.setUserID);
-  // setUserID(profile.authID);
-
-  let profile = null;
-
+  
+  let { profile } = useProfile();
   return (
-    <Page>
-      <ProfileInformationBar profile={profile} />
-      <MainContent>
-        <OwnedProperties profile={profile} />
-        <RentedProperties profile={profile} />
-      </MainContent>
-      <BottomNavigationBar />
-    </Page>
+    <Authentication>
+      <Page>
+        <ProfileInformationBar profile={profile} />
+        <MainContent>
+          <OwnedProperties profile={profile} />
+          <RentedProperties profile={profile} />
+        </MainContent>
+        <BottomNavigationBar />
+      </Page>
+    </Authentication>
   )
 }
 

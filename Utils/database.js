@@ -8,12 +8,11 @@ import {
 async function addAuth0UserToDatabase(user) {
 
     let item = {
-        authID: user.sub,
+        authID: user.id,
         authUser: user,
-        name: user.nickname,
-        ownedProperties: [],
-        rentedProperties: []
+        name: user.email,
     };
+    console.log(item);
 
     const {
         data,
@@ -23,8 +22,8 @@ async function addAuth0UserToDatabase(user) {
         .insert([item])
 
     return {
-        insertedProfile: data,
-        insertError: error
+        data,
+        error
     }
 }
 // retrive all users

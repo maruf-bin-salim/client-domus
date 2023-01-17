@@ -17,11 +17,11 @@ export default function Notifcations({ profile }) {
 
 
     useEffect(() => {
-        fetchNotifications();
+        if (profile) fetchNotifications();
         return () => {
         }
 
-    }, []);
+    }, [profile]);
 
 
     return (
@@ -37,7 +37,7 @@ export default function Notifcations({ profile }) {
                                 {notification.description}
                             </Text>
                             <Text size={1}>
-                              {getTimeDateString(notification.timestamp)}
+                                {getTimeDateString(notification.timestamp)}
                             </Text>
                         </NotifcationSnippet>
 
