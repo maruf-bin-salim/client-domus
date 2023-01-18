@@ -22,6 +22,8 @@ import { BsCashCoin } from 'react-icons/bs';
 import data from "../../styles/data";
 import MessengerModal from "../Modals/MessengerModal";
 import { getThreadId } from "../../Utils/getThreadID";
+import { LinkItUrl } from 'react-linkify-it'
+
 
 function BkashLink({ link }) {
     return (
@@ -111,8 +113,8 @@ function PropertySnippet({ property, profile, openModal, setPosition, setAddress
                 <Text size={1} style={{ ...centerChilds, justifyContent: "left" }}>{`rented by`} <BiHash /> {profile.name}  </Text>
             }
 
-            {hasDescription() && <LinkItUrl> <Text underline active size={1}>{`Description`} </Text> </LinkItUrl>}
-            {hasDescription() && <Text size={1}> {property.description} </Text>}
+            {hasDescription() && <Text underline active size={1}>{`Description`} </Text>}
+            {hasDescription() && <LinkItUrl>  <Text size={1}> {property.description} </Text> </LinkItUrl>}
 
             <IconTextBox>
                 <Text underline active size={1}>{`Secret Key`} </Text>
@@ -133,7 +135,7 @@ function PropertySnippet({ property, profile, openModal, setPosition, setAddress
                 </Text>}
             </IconTextBox>
 
-            {
+            {/* {
                 (data.bkashLinks && data.bkashLinks.length !== 0) &&
                 <>
                     <IconTextBox>
@@ -152,7 +154,7 @@ function PropertySnippet({ property, profile, openModal, setPosition, setAddress
                         })
                     }
                 </>
-            }
+            } */}
 
 
 

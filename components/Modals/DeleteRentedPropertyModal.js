@@ -37,7 +37,7 @@ export default function DeleteRentedPropertyModal({ property, profile }) {
         await sendNotification(deletionDescription, property.renterID);
         setIsDeleting(false);
         toggleIsModalOpen();
-        if (updatedProperty) window.location.reload(false);
+        window.location.reload(false);
 
 
     }
