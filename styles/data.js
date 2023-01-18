@@ -32,13 +32,28 @@ const bkashLinks = [
 
 
 
+// const color = {
+//     dark: "#000000",
+//     light: "#FFFFFF",
+//     primary: "#222932",
+//     primaryMedium: "#545f6b",
+//     secondary: "#C73A33",
+//     secondaryMedium: "#C73A33",
+//     text: {
+//         light: "#99AAB5",
+//         lighter: "#C0C0C0",
+//         lightest: "#dddddd",
+//         inverted: "#000000"
+//     }
+// };
+
 const color = {
     dark: "#000000",
     light: "#FFFFFF",
-    primary: "#222932",
-    primaryMedium: "#545f6b",
-    secondary: "#C73A33",
-    secondaryMedium: "#C73A33",
+    primary: "#1c1c1c",
+    primaryMedium: "#232323",
+    secondary: "#3FCF8E",
+    secondaryMedium: "#3FCF8E",
     text: {
         light: "#99AAB5",
         lighter: "#C0C0C0",
@@ -46,7 +61,6 @@ const color = {
         inverted: "#000000"
     }
 };
-
 
 const data = {
     styles: {

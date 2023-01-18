@@ -4,10 +4,10 @@
 :root {
   --dark: #000000;
   --light: #FFFFFF;
-  --primary: #222932;
-  --primaryMedium: #545f6b;
-  --secondary: #C73A33;
-  --secondaryMedium: #C73A33;
+  --primary: #1c1c1c;
+  --primaryMedium: #232323;
+  --secondary: #3FCF8E;
+  --secondaryMedium: #3FCF8E;
   --textLight: #99AAB5;
   --textLighter: #C0C0C0;
   --textLightest: #dddddd;
@@ -37,7 +37,13 @@ body,
 #__next>div {
   background-color: var(--primaryMedium);
   height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('../public/loader.svg');
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 button {
   padding: 10px;
@@ -70,7 +76,7 @@ a {
 
 
 
-.auth-container {
+#__next>.auth-container {
   background-image: url('../public/auth-bg.webp');
   background-size: cover;
   background-repeat: no-repeat;
@@ -81,51 +87,48 @@ a {
   padding: 10px;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
-.auth-container > div 
-{
-  background-color: #6D6E6E;
+
+.auth-container>div {
+  background-color: var(--primary);
   padding: 20px;
   padding-left: 60px;
   padding-right: 60px;
   border-radius: 10px;
-  box-shadow: 8px 8px 8px 0px rgba(0,0,0,0.25);
+  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.25);
   min-height: 100px;
   min-width: 200px;
 }
-.auth-container > div *
-{
+
+.auth-container>div * {
   color: white;
 }
-.auth-container > div input
-{
-  background-color: white;
+
+.auth-container>div input {
+  background-color: var(--primaryMedium);
   border-radius: 10px;
-  color: black;
+  color: white;
 }
 
-.auth-container > div button
-{
-  background-color: #000000;
+.auth-container>div button {
+  background-color: var(--secondaryMedium);
   border: none;
   border-radius: 10px;
   text-transform: none;
-  box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.auth-container > div button:hover
-{
+
+.auth-container>div button:hover {
   background-color: #101010;
   color: #dbdbdb;
 }
 
-.auth-container > div span
-{
+.auth-container>div span {
   color: #e73c3c;
   text-decoration: underline;
 }
 
-.auth-container > div label
-{
+.auth-container>div label {
   text-transform: none;
 }

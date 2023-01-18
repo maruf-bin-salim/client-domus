@@ -48,10 +48,15 @@ export default function BottomNavigationBar() {
         if (!isViewingAsOwner && currentPage === PAGES.ADD_OWNED_PROPERTY) Router.push('/add-rented-property');
     }, [isViewingAsOwner]);
 
+    async function logout()
+    {
+        await supabase.auth.signOut();
+        Router.reload();
+    }
+
 
 
     return (
-
         <NavbarContainer>
             <NavbarMain>
                 {
@@ -85,7 +90,7 @@ export default function BottomNavigationBar() {
 
 
 
-                <NavLink onClick={() => { supabase.auth.signOut(); }}>
+                <NavLink onClick={async () => { await logout() }}>
                     <Text size={3} style={centerChilds}>
                         <AiOutlineLogout />
                     </Text>

@@ -26,6 +26,12 @@ let ProfileImage = styled.img`
 let ConvertButton = styled.button`
     margin: 20px;
     margin-left: auto;
+    background-color: ${data.styles.color.secondaryMedium};
+    color: white;
+    border-radius: 15px;
+    &:hover {
+        scale: 1.1;
+    }
     @media ${data.styles.devices.tablet} {
     }
 `

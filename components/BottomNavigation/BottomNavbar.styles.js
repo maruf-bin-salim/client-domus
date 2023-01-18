@@ -46,6 +46,11 @@ let NavLink = styled.div`
     // {active == true : if the page is in the current link}
     color:  ${({ active }) => (active ? `${data.styles.color.text.lightest}` : `${data.styles.color.text.lighter}`)};
     background-color: ${({ active }) => (active ? `${data.styles.color.secondaryMedium}` : ` ${data.styles.color.primary}`)};
+    border-radius: 10px;
+
+    &:hover {
+        scale: 1.1;
+    }
 `
 
 const centerChilds = { display: "flex", justifyContent: "center", alignItems: "center" };
