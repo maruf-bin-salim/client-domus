@@ -12,7 +12,7 @@ import useProfile from '../hooks/useProfile';
 export default function Dashboard({ }) {
 
   
-  let { profile } = useProfile(true);
+  let { profile } = useProfile();
   
   return (
     <Authentication>

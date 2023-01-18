@@ -5,7 +5,7 @@ import { addAuth0UserToDatabase, getUserWithAuth0ID } from "../Utils/database";
 import { useUserPreferencesStore } from '../store';
 
 
-export default function useProfile(isIndex) {
+export default function useProfile() {
     const session = useSession();
     const [profile, setProfile] = useState(null);
     const setUserID = useUserPreferencesStore((state) => state.setUserID);
@@ -28,10 +28,6 @@ export default function useProfile(isIndex) {
                 console.log('inserted', user, error);
                 setProfile(user);
                 setUserID(session.user.id);
-            }
-            if(isIndex)
-            {
-                window.location.reload(true);
             }
         }
         if (session && !profile) {
