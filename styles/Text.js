@@ -28,6 +28,10 @@ let Text = styled.p`
     line-height: 1.3;
     height: max-content;
     white-space: pre-line;
+    > a {
+        color: ${data.styles.color.secondary};
+        text-decoration: underline;
+    }
     &:hover{
         text-decoration: ${({ underlineOnHover, underline }) => ((underlineOnHover || underline) ? "underline" : "none")};
     }

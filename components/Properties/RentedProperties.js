@@ -30,10 +30,10 @@ function BkashLink({ link }) {
                 <BiHash />
             </Text>
             <Text style={{ marginLeft: "10px" }} underline>
-                <a onClick={()=>{
-                  var newTab = window.open();
-                  newTab.opener = null;
-                  newTab.location = link.target;
+                <a onClick={() => {
+                    var newTab = window.open();
+                    newTab.opener = null;
+                    newTab.location = link.target;
                 }}> {link.title} </a>
             </Text>
         </IconTextBox>
@@ -41,7 +41,7 @@ function BkashLink({ link }) {
 }
 
 
-function PropertySnippet({ property, profile, openModal, setPosition, setAddress, setSelectedProperty, setThreadID}) {
+function PropertySnippet({ property, profile, openModal, setPosition, setAddress, setSelectedProperty, setThreadID }) {
 
     const setMarkerPosition = useMapStore((state) => state.setMarkerPosition);
     function openMapModal() {
@@ -111,7 +111,7 @@ function PropertySnippet({ property, profile, openModal, setPosition, setAddress
                 <Text size={1} style={{ ...centerChilds, justifyContent: "left" }}>{`rented by`} <BiHash /> {profile.name}  </Text>
             }
 
-            {hasDescription() && <Text underline active size={1}>{`Description`} </Text>}
+            {hasDescription() && <LinkItUrl> <Text underline active size={1}>{`Description`} </Text> </LinkItUrl>}
             {hasDescription() && <Text size={1}> {property.description} </Text>}
 
             <IconTextBox>
@@ -146,7 +146,7 @@ function PropertySnippet({ property, profile, openModal, setPosition, setAddress
                     {
                         data.bkashLinks.map((link, index) => {
                             return (
-                                    <BkashLink key={index} link={link} />
+                                <BkashLink key={index} link={link} />
 
                             )
                         })
@@ -215,7 +215,7 @@ export default function RentedProperties({ profile }) {
     }
 
     useEffect(() => {
-        if(profile) fetchProperties();
+        if (profile) fetchProperties();
         return () => {
         };
     }, [profile]);
@@ -228,7 +228,7 @@ export default function RentedProperties({ profile }) {
     function propertyFilteredByInput(property) {
         return property.address.toLowerCase().includes(inputAddress.toLowerCase());
     }
-    
+
 
 
     return (

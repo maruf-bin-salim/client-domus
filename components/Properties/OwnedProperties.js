@@ -19,6 +19,7 @@ import { FlexBox } from "../Modals/Modals.styles";
 import { TiMessage } from "react-icons/ti";
 import { GiCrossMark } from "react-icons/gi";
 import MessengerModal from "../Modals/MessengerModal";
+import { LinkItUrl } from 'react-linkify-it'
 
 function PropertySnippet({ property, profile, openModal, setPosition, setAddress, setSelectedProperty }) {
 
@@ -87,7 +88,7 @@ function PropertySnippet({ property, profile, openModal, setPosition, setAddress
             }
 
             {hasDescription() && <Text underline active size={1}>{`Description`} </Text>}
-            {hasDescription() && <Text size={1}> {property.description} </Text>}
+            {hasDescription() && <LinkItUrl> <Text size={1}> {property.description} </Text> </LinkItUrl>}
 
             <IconTextBox>
                 <Text underline active size={1}>{`Secret Key`} </Text>

@@ -41,7 +41,7 @@ export default function DeleteOwnedPropertyModal({ property, profile }) {
         }
         setIsDeleting(false);
         toggleIsModalOpen();
-        if (data) window.location.reload(false);
+        window.location.reload(false);
 
 
     }
