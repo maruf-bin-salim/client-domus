@@ -103,7 +103,7 @@ export default function EditPropertyModal({ property, profile }) {
             window.location.reload(false);
         }
         setIsuploading(false);
-
+        window.location.reload(false);
     }
 
     const updateButtonStyle = {

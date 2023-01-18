@@ -13,10 +13,12 @@ import {
 } from "../../store";
 import { Text } from "../../styles/Text";
 import { NavbarContainer, NavbarMain, NavLink, centerChilds } from "./BottomNavbar.styles";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 
 
 export default function BottomNavigationBar() {
+    const supabase = useSupabaseClient();
 
     const hasPersistance = useStorePersistance();
     const isViewingAsOwner = useUserPreferencesStore((state) => state.isViewingAsOwner);
@@ -83,7 +85,7 @@ export default function BottomNavigationBar() {
 
 
 
-                <NavLink onClick={() => { Router.push('/api/auth/logout') }}>
+                <NavLink onClick={() => { supabase.auth.signOut(); }}>
                     <Text size={3} style={centerChilds}>
                         <AiOutlineLogout />
                     </Text>

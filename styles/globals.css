@@ -71,10 +71,10 @@ a {
 
 
 .auth-container {
-  /* background-image: url('../public/auth-background.jpg');
+  background-image: url('../public/auth-bg.webp');
   background-size: cover;
   background-repeat: no-repeat;
-  background-blend-mode: overlay; */
+  background-blend-mode: overlay;
   width: 100%;
   height: 100%;
   margin: auto;

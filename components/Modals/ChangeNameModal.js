@@ -6,7 +6,7 @@ import { BiHash } from "react-icons/bi";
 
 
 
-import { useUserPreferencesStore } from "../../store";
+import { useModalStore, useUserPreferencesStore } from "../../store";
 import { centerChilds, Text } from "../../styles/Text"
 import { addNotificationToDatabase, changeNameOfUser, getOwnedPropertiesOfUser, getRentedPropertiesOfUser, getUserWithAuth0ID } from "../../Utils/database";
 import {
@@ -26,13 +26,14 @@ import { getRandomID } from "../../Utils/random";
 function ChangeName({ userName, userID, isUpdating, setIsUpdating }) {
 
     const changeModalEdition = useUserPreferencesStore((state) => state.changeModalEdition);
+    const toggleIsModalOpen = useModalStore((state) => state.toggleIsModalOpen);
+
     const [isEditing, setIsEditing] = useState(false);
 
     const [name, setName] = useState(userName);
     const [nameInput, setNameInput] = useState("");
 
-    async function sendNotification(description)
-    {
+    async function sendNotification(description) {
         let notification = {
             notificationID: getRandomID('NOTIFICATION'),
             sentTo: userID,
@@ -56,7 +57,9 @@ function ChangeName({ userName, userID, isUpdating, setIsUpdating }) {
         setIsUpdating(false);
         if (updatedProfile)
             setName(nameInput);
-        changeModalEdition(true);
+        changeModalEdition(false);
+        toggleIsModalOpen();
+        window.location.reload(false);
     }
 
     return (
@@ -97,7 +100,7 @@ export default function ChangeNameModal({ profile }) {
     const [rentedPropertyCount, setRentedPropertyCount] = useState(0);
 
 
-    
+
 
     async function getandSetOwnedPropertyCount() {
         let { data, error } = await getOwnedPropertiesOfUser(profile.authID);
@@ -112,15 +115,15 @@ export default function ChangeNameModal({ profile }) {
 
 
 
-    useEffect(()=>{
+    useEffect(() => {
         getandSetOwnedPropertyCount();
         getandSetRentedPropertyCount();
     }, []);
-  
+
     return (
         <GenericModal>
             <ProfileImage src={"/default_profile_picture.png"} alt={user.name} />
-            <ChangeName userName={user.name} userID={userID} isUpdating={isUpdating} setIsUpdating={setIsUpdating}/>
+            <ChangeName userName={user.name} userID={userID} isUpdating={isUpdating} setIsUpdating={setIsUpdating} />
             <Text size={2} style={centerChilds}>
                 <TiMail />
                 {user.authUser.email}

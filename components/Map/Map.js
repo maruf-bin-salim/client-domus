@@ -20,7 +20,7 @@ const CustomMarker = ({ draggable, position, address }) => {
   const dragEvents = useMemo(() => ({
     dragend() {
       const marker = draggableMarkerReference.current
-      if (marker) setMarkerPosition(marker.getLatLng())
+      if (marker) setMarkerPosition({lat: marker.getLatLng()?.lat, lng: marker.getLatLng()?.lng} )
     }
   }), []);
 
@@ -46,15 +46,18 @@ function ChangeView({ center }) {
 
 const Map = ({ draggable, position, address }) => {
 
+  
   const markerPosition = useMapStore((state) => state.markerPosition);
   let positionOfDhaka = { lat: 23.7104000, lng: 90.4074400 };
-
+  
   const [zoom, setZoom] = useState(null);
+  console.log(position, markerPosition);
+  
   useEffect(() => {
     if(position && !isEqualFloat(positionOfDhaka.lat, position.lat) && !isEqualFloat(positionOfDhaka.lng, position.lng)) setZoom(18);
     else setZoom(14);
   }, [])
-
+  
   return (
     zoom &&
     <MapContainer className={styles.map} center={markerPosition} zoom={zoom} scrollWheelZoom={true}>

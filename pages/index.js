@@ -7,14 +7,13 @@ import RentedProperties from '../components/Properties/RentedProperties';
 import Authentication from './authentication';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import useProfile from '../hooks/useProfile';
-import { useUserPreferencesStore } from '../store';
-
 
 
 export default function Dashboard({ }) {
 
   
-  let { profile } = useProfile();
+  let { profile } = useProfile(true);
+  
   return (
     <Authentication>
       <Page>
